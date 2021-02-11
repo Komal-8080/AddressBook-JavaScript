@@ -1,5 +1,6 @@
 class Person{
 
+    //Constructor
     constructor(...params){
         this.firstName=params[0];
         this.lastName=params[1];
@@ -11,6 +12,7 @@ class Person{
         this.email=params[7];
     }    
 
+    //ToString Method
     toString(){
         return '\nFirstName: ' + this.firstName + ' LastName: ' + this.lastName + ' Address: ' + this.address+ ' City: '+ this.city+' State : '+ this.state+ ' Zip: '+this.zip+' PhoneNumber: '+this.phoneNumber+' Email: '+ this.email;
     }
