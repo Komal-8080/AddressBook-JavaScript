@@ -82,9 +82,18 @@ class Person{
     }
 }
 
+//To Add Person Contact
+function addPerson(addressBook, personData) {
+    addressBook.push(personData);
+}
+
 try{
-let personData = new Person("Komal","Shinde","Sion","Mumbai","Maharastra",400017,'91 7712034524','abc.xyz@bl.co.in');
-console.log(personData.toString());
+let personData1 = new Person("Komal","Shinde","Sion","Mumbai","Maharastra",400017,'91 7712034524','abc.xyz@bl.co.in');
+let personData2 = new Person("Sony", "Hotker","Imampura","Hyderabad","Telangana","500006","91 9030595968","abc.xyz@bl.co.in");
+let addressBookArray = new Array();
+addPerson(addressBookArray,personData1);
+addPerson(addressBookArray,personData2);
+addressBookArray.forEach(personData => console.log(personData.toString()))
 }
 catch(e){
     console.error(e);
