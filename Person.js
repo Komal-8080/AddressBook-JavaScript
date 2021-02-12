@@ -70,7 +70,7 @@ class Person{
 
     get email(){return this._email;}
         set email(email){
-            let regEmail= RegExp('^[a-zA-Z]{3}\\.[a-zA-Z]{1,}@[a-zA-Z]{2}\\.[a-zA-Z]{2}\\.[a-zA-Z]{1,}$');
+            let regEmail= RegExp('^([a-zA-a0-9\\.\\-\\+]+)@([a-zA-Z0-9\\.]{1,5})([a-zA-Z\\.]+){1,3}([a-zA-Z]{1,3})$');
             if(regEmail.test(email))
                 this._email=email;
             else throw 'Invalid Email Id';
@@ -92,14 +92,29 @@ function editPerson(personName, oldName, newName) {
     personName.filter(person => person.firstName == oldName).forEach(person => person.firstName = newName);
 }
 
+//To delete Person Contact
+function deletePerson(addressBook, personName){
+    let removePerson = addressBook.map(person => person.firstName).indexOf(personName);
+    addressBook.splice(removePerson,1);
+}
+
+
 try{
 let personData1 = new Person("Komal","Shinde","Sion","Mumbai","Maharastra",400017,'91 7712034524','abc.xyz@bl.co.in');
 let personData2 = new Person("Sony", "Hotker","Imampura","Hyderabad","Telangana","500006","91 9030595968","abc.xyz@bl.co.in");
+let personData3 = new Person("Lakhan", "Hotker","Jiyaguda","Hyderabad","Telangana","500006","91 8231054679", "abc@yahoo.com");
 let addressBookArray = new Array();
 addPerson(addressBookArray,personData1);
 addPerson(addressBookArray,personData2);
+addPerson(addressBookArray,personData3);
+console.log("Person Data");
+addressBookArray.forEach(person => console.log(person.toString()));
 editPerson(addressBookArray, "Komal", "Bhakti");
-addressBookArray.forEach(person => console.log(person.toString()))
+console.log("On Editing Person Data");
+addressBookArray.forEach(person => console.log(person.toString()));
+deletePerson(addressBookArray, "Sony");
+console.log("On deleting Person Data");
+addressBookArray.forEach(person => console.log(person.toString()));
 }
 catch(e){
     console.error(e);
