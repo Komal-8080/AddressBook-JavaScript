@@ -140,6 +140,12 @@ function countPersonByState(addressBook,stateName){
     console.log("Number of Persons in " +stateName+ ":"+count);
 }
 
+//To Sort Persons Alphabetically
+function sortPersons(addressBook) {
+    addressBook.sort();
+    addressBook.forEach(person => console.log(person.toString()));
+}
+
 try{
 let personData1 = new Person("Komal","Shinde","Sion","Mumbai","Maharastra",400017,'91 7712034524','abc.xyz@bl.co.in');
 let personData2 = new Person("Sony", "Hotker","Imampura","Hyderabad","Telangana","500006","91 9030595968","abc.xyz@bl.co.in");
@@ -171,6 +177,8 @@ getPersonByCity(addressBookArray,"Mumbai");
 getPersonByState(addressBookArray,"Telangana");
 countPersonByCity(addressBookArray,"Mumbai");
 countPersonByState(addressBookArray,"Telangana");
+console.log("Sorted Persons Data");
+sortPersons(addressBookArray);
 }
 catch(e){
     console.error(e);
