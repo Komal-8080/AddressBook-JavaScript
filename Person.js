@@ -110,6 +110,11 @@ function removeDuplicate(addressBook) {
     addressBook.splice(duplicatePerson,1);   
 } 
 
+function searchPerson(addressBook,personName){
+    let search=addressBook.find(person => person.firstName=== personName);
+    console.log("Searched Person Details are: " + search.toString());
+}
+
 try{
 let personData1 = new Person("Komal","Shinde","Sion","Mumbai","Maharastra",400017,'91 7712034524','abc.xyz@bl.co.in');
 let personData2 = new Person("Sony", "Hotker","Imampura","Hyderabad","Telangana","500006","91 9030595968","abc.xyz@bl.co.in");
@@ -132,6 +137,7 @@ countPerson(addressBookArray);
 removeDuplicate(addressBookArray);
 console.log("After Removing Duplicates : ");
 addressBookArray.forEach(person => console.log(person.toString()));
+searchPerson(addressBookArray,"Lakhan");
 }
 catch(e){
     console.error(e);
