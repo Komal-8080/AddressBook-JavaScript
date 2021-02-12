@@ -126,6 +126,20 @@ function getPersonByState(addressBook,stateName){
     addressBook.filter(personName => personName.state == stateName).forEach(person=>console.log("Person In A State " +stateName+":"+person.toString()));
 }
 
+//To Count Person By City name
+function countPersonByCity(addressBook,cityName){
+    let cityCount = addressBook.filter(personName => personName.city == cityName);
+    let count= cityCount.reduce((acc, elements) => acc.concat(elements), []).length;
+    console.log("Number of Persons in " +cityName+ ":"+count);
+}
+
+//To Count Person By State name
+function countPersonByState(addressBook,stateName){
+    let stateCount = addressBook.filter(personName => personName.state == stateName);
+    let count= stateCount.reduce((acc, elements) => acc.concat(elements), []).length;
+    console.log("Number of Persons in " +stateName+ ":"+count);
+}
+
 try{
 let personData1 = new Person("Komal","Shinde","Sion","Mumbai","Maharastra",400017,'91 7712034524','abc.xyz@bl.co.in');
 let personData2 = new Person("Sony", "Hotker","Imampura","Hyderabad","Telangana","500006","91 9030595968","abc.xyz@bl.co.in");
@@ -155,6 +169,8 @@ addressBookArray.forEach(person => console.log(person.toString()));
 searchPerson(addressBookArray,"Lakhan");
 getPersonByCity(addressBookArray,"Mumbai");
 getPersonByState(addressBookArray,"Telangana");
+countPersonByCity(addressBookArray,"Mumbai");
+countPersonByState(addressBookArray,"Telangana");
 }
 catch(e){
     console.error(e);
