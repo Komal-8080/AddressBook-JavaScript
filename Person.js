@@ -98,6 +98,11 @@ function deletePerson(addressBook, personName){
     addressBook.splice(removePerson,1);
 }
 
+//To Count Number Of Persons
+function countPerson(addressBook){
+    let count= addressBook.reduce((acc, elements) => acc.concat(elements), []).length;
+    console.log("Number of Persons are : "+count);
+ }
 
 try{
 let personData1 = new Person("Komal","Shinde","Sion","Mumbai","Maharastra",400017,'91 7712034524','abc.xyz@bl.co.in');
@@ -115,6 +120,7 @@ addressBookArray.forEach(person => console.log(person.toString()));
 deletePerson(addressBookArray, "Sony");
 console.log("On deleting Person Data");
 addressBookArray.forEach(person => console.log(person.toString()));
+countPerson(addressBookArray);
 }
 catch(e){
     console.error(e);
