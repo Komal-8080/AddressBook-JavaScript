@@ -142,7 +142,65 @@ function countPersonByState(addressBook,stateName){
 
 //To Sort Persons Alphabetically
 function sortPersons(addressBook) {
-    addressBook.sort();
+    addressBook.sort(function compare(a,b) {
+        let nameA = a.firstName.toUpperCase();
+        let nameB = b.firstName.toUpperCase();
+        let comparison = 0;
+        if(nameA > nameB){
+            comparison = 1;
+        }else if(nameA < nameB) {
+            comparison = -1;
+        }
+        return comparison;
+    });
+    addressBook.forEach(person => console.log(person.toString()));
+}
+
+//To Sort Persons By City
+function sortPersonsByCity(addressBook) {
+    addressBook.sort(function compare(a,b) {
+        let nameA = a.city.toUpperCase();
+        let nameB = b.city.toUpperCase();
+        let comparison = 0;
+        if(nameA > nameB){
+            comparison = 1;
+        }else if(nameA < nameB) {
+            comparison = -1;
+        }
+        return comparison;
+    });
+    addressBook.forEach(person => console.log(person.toString()));
+}
+
+//To Sort Persons By State
+function sortPersonsByState(addressBook) {
+    addressBook.sort(function compare(a,b) {
+        let nameA = a.state.toUpperCase();
+        let nameB = b.state.toUpperCase();
+        let comparison = 0;
+        if(nameA > nameB){
+            comparison = 1;
+        }else if(nameA < nameB) {
+            comparison = -1;
+        }
+        return comparison;
+    });
+    addressBook.forEach(person => console.log(person.toString()));
+}
+
+//To Sort Persons By Zip
+function sortPersonsByZip(addressBook) {
+    addressBook.sort(function compare(a,b) {
+        let nameA = a.zip;
+        let nameB = b.zip;
+        let comparison = 0;
+        if(nameA > nameB){
+            comparison = 1;
+        }else if(nameA < nameB) {
+            comparison = -1;
+        }
+        return comparison;
+    });
     addressBook.forEach(person => console.log(person.toString()));
 }
 
@@ -177,8 +235,14 @@ getPersonByCity(addressBookArray,"Mumbai");
 getPersonByState(addressBookArray,"Telangana");
 countPersonByCity(addressBookArray,"Mumbai");
 countPersonByState(addressBookArray,"Telangana");
-console.log("Sorted Persons Data");
+console.log("Sorted Persons Data By Name");
 sortPersons(addressBookArray);
+console.log("Sorted Persons Data By City");
+sortPersonsByCity(addressBookArray);
+console.log("Sorted Persons Data By State");
+sortPersonsByState(addressBookArray);
+console.log("Sorted Persons Data By Zip");
+sortPersonsByZip(addressBookArray);
 }
 catch(e){
     console.error(e);
