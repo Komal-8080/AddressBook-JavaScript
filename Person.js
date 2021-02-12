@@ -110,9 +110,20 @@ function removeDuplicate(addressBook) {
     addressBook.splice(duplicatePerson,1);   
 } 
 
+//To Search Person by Name
 function searchPerson(addressBook,personName){
     let search=addressBook.find(person => person.firstName=== personName);
     console.log("Searched Person Details are: " + search.toString());
+}
+
+//To Get Person by City name
+function getPersonByCity(addressBook,cityName){
+    addressBook.filter(personName => personName.city == cityName).forEach(person=>console.log("Person In A City "+cityName+ ":" +person.toString()));
+}
+
+//To Get Person by State name
+function getPersonByState(addressBook,stateName){
+    addressBook.filter(personName => personName.state == stateName).forEach(person=>console.log("Person In A State " +stateName+":"+person.toString()));
 }
 
 try{
@@ -120,11 +131,15 @@ let personData1 = new Person("Komal","Shinde","Sion","Mumbai","Maharastra",40001
 let personData2 = new Person("Sony", "Hotker","Imampura","Hyderabad","Telangana","500006","91 9030595968","abc.xyz@bl.co.in");
 let personData3 = new Person("Lakhan", "Hotker","Jiyaguda","Hyderabad","Telangana","500006","91 8231054679", "abc@yahoo.com");
 let personData4 = new Person("Komal","Shinde","Sion","Mumbai","Maharastra",400017,'91 7712034524','abc.xyz@bl.co.in');
+let personData5 = new Person("Sudhir","Shinde","Sion","Mumbai","Maharastra",400017,'91 7712034524','abc.xyz@bl.co.in');
+let personData6 = new Person("Anita", "Hotker","Imampura","Hyderabad","Telangana","500006","91 9030595968","abc.xyz@bl.co.in");
 let addressBookArray = new Array();
 addPerson(addressBookArray,personData1);
 addPerson(addressBookArray,personData2);
 addPerson(addressBookArray,personData3);
 addPerson(addressBookArray,personData4);
+addPerson(addressBookArray,personData5);
+addPerson(addressBookArray,personData6);
 console.log("Person Data");
 addressBookArray.forEach(person => console.log(person.toString()));
 editPerson(addressBookArray, "Komal", "Bhakti");
@@ -138,6 +153,8 @@ removeDuplicate(addressBookArray);
 console.log("After Removing Duplicates : ");
 addressBookArray.forEach(person => console.log(person.toString()));
 searchPerson(addressBookArray,"Lakhan");
+getPersonByCity(addressBookArray,"Mumbai");
+getPersonByState(addressBookArray,"Telangana");
 }
 catch(e){
     console.error(e);
