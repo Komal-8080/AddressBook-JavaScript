@@ -126,14 +126,14 @@ function getPersonByState(addressBook,stateName){
     addressBook.filter(personName => personName.state == stateName).forEach(person=>console.log("Person In A State " +stateName+":"+person.toString()));
 }
 
-//To Count Person By City name
+//To Get Person Count By City name
 function countPersonByCity(addressBook,cityName){
     let cityCount = addressBook.filter(personName => personName.city == cityName);
     let count= cityCount.reduce((acc, elements) => acc.concat(elements), []).length;
     console.log("Number of Persons in " +cityName+ ":"+count);
 }
 
-//To Count Person By State name
+//To Get Person Count By State name
 function countPersonByState(addressBook,stateName){
     let stateCount = addressBook.filter(personName => personName.state == stateName);
     let count= stateCount.reduce((acc, elements) => acc.concat(elements), []).length;
